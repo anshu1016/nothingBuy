@@ -1,0 +1,91 @@
+/* addressForm.css */
+
+/* Container for centering the form */
+.addAddressForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: calc(100vh - (navbar-height + footer-height)); Adjust based on your actual navbar and footer heights */
+  }
+  
+  /* Box styling for the form */
+  .addAddressForm form {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto; /* Added margin to center the form from the top and bottom */
+    padding: 20px;
+    border: 1px solid #ddd; /* Updated border color to a lighter shade */
+    border-radius: 8px; /* Increased border-radius for a softer look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added a subtle box shadow for depth */
+  }
+  
+  .addAddressForm h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the row of inputs */
+  .addAddressForm .formRow {
+    display: flex;
+    flex-wrap: wrap; /* Allow elements to wrap to the next line on small screens */
+    gap: 10px;
+    margin-bottom: 10px; /* Added margin to create space between rows */
+  }
+  
+  /* Style for the inputs in a row */
+  .addAddressForm .formRow input[type="text"],
+  .addAddressForm .formRow select {
+    flex: 1;
+    padding: 12px; /* Increased padding for better spacing */
+    border: 1px solid #ccc; /* Added a light gray border */
+    border-radius: 5px; /* Added border-radius for a rounded look */
+  }
+  
+  .addAddressForm textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 100px;
+    padding: 12px; /* Increased padding for better spacing */
+    border: 1px solid #ccc; /* Added a light gray border */
+    border-radius: 5px; /* Added border-radius for a rounded look */
+  }
+  
+  .addAddressForm button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;  /* Buttons take the full width on mobile */
+  }
+  
+  .addAddressForm .addButton {
+    background-color: #3a75c4;
+    color: #fff;
+  }
+  
+  .addAddressForm .resetButton {
+    background-color: #ff6767;
+    color: #fff;
+  }
+  
+  .addAddressForm .randomDataButton {
+    background-color: #36b45a;
+    color: #fff;
+  }
+  
+  .addAddressForm .cancelButton {
+    background-color: #ccc;
+  }
+  
+  /* Media Query for Mobile Devices */
+  @media only screen and (max-width: 600px) {
+    .addAddressForm .formRow {
+      flex-direction: column; /* Display inputs in a column on small screens */
+    }
+  
+    .addAddressForm button {
+      margin-top: 10px; /* Add some spacing between buttons */
+    }
+  }
+  

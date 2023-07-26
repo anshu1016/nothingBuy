@@ -1,0 +1,194 @@
+/* Styles for the profileContainer */
+.profileContainer {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 30px;
+  width: 90%;
+  max-width: 800px; /* Limit the maximum width */
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the profileOptions */
+.profileOptions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.profileOption {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.profileOption:hover {
+  background-color: #f0f0f0;
+}
+
+.profileOption.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+/* Styles for the orderHistoryBlock */
+.orderHistoryBlock {
+  margin-top: 30px;
+}
+
+.orderGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.orderGroup img {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+}
+
+/* Additional styles for the profileBlock and addressBlock */
+.addressBlockk{
+  display: flex;
+  flex-direction: column;
+}
+.profileBlock,
+.addressBlock {
+  margin-top: 30px;
+  border-top: 1px solid #ddd;
+  padding-top: 30px;
+}
+
+.addressBlock {
+  background: #e9f8fe;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Styles for the name and email */
+.name,
+.email {
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+/* Styles for the properAddress */
+.properAddress {
+  margin-top: 20px;
+}
+
+/* Center align text for the address and country */
+.street,
+.state,
+.country {
+  text-align: center;
+  font-size: 18px;
+}
+
+/* Styles for the phone */
+.phone {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.phone svg {
+  margin-right: 10px;
+}
+
+/* Styles for address buttons */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+/* Specific styles for each button */
+.buttons .edit {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.buttons .edit:hover {
+  background-color: #d39e00;
+}
+
+.buttons .remove {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.buttons .remove:hover {
+  background-color: #c82333;
+}
+
+.add-new-address-btn {
+  background-color: #28a745;
+  color: #fff;
+  margin-top: 20px;
+  /* width: 100%; */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.3s ease-out;
+}
+
+.add-new-address-btn:hover {
+  background-color: #218838;
+}
+
+/* Mobile-friendly styles */
+@media screen and (max-width: 600px) {
+  .profileOptions {
+    flex-direction: row;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .profileOption {
+    margin-bottom: 10px;
+  }
+
+  .profileBlock,
+  .addressBlock {
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
+  .name,
+  .email,
+  .street,
+  .state,
+  .country,
+  .phone {
+    font-size: 16px;
+  }
+
+  .orderGroup img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .buttons button {
+    padding: 10px;
+    width: 100%;
+  }
+}

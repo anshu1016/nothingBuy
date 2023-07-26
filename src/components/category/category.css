@@ -1,0 +1,102 @@
+/* category.css */
+
+/* Container for the entire category component */
+.categoryContainer {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cardss{
+    display: flex;
+    gap:20px;
+  }
+  /* Title styling */
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for each category card */
+  .categoryy {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 800px; /* Optional: Limit the width of the card */
+    display: flex; /* Display the card in a row */
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Flex layout for image and content */
+  .categoryy .imageContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Image styling */
+  .categoryy .imagee {
+    flex: 1; /* Use available space for the image */
+  }
+  
+  .categoryy .imagee img {
+    max-width: 200px; /* Set the desired width for the image */
+    max-height: 200px; /* Set the desired height for the image */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Content styling */
+  .categoryy .imageContent h4 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .categoryy .imageContent h3 {
+    font-size: 24px;
+    font-weight: normal;
+  }
+  
+  .categoryy .imageContent button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    .categoryy {
+      flex-direction: column; /* Stack the cards in a column for small devices */
+      text-align: center;
+    }
+  .cardss{
+    flex-direction: column;
+  }
+    .categoryy .imagee img {
+      max-width: 150px; /* Adjust the image size for small devices */
+      max-height: 150px;
+    }
+  
+    .categoryy .imageContent h4 {
+      font-size: 16px;
+    }
+  
+    .categoryy .imageContent h3 {
+      font-size: 20px;
+    }
+  
+    .categoryy .imageContent button {
+      font-size: 16px;
+    }
+  }
+  

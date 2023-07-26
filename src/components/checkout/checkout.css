@@ -1,0 +1,204 @@
+/* checkout.css */
+
+/* Container */
+.checkOutContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 800px;
+    margin: 60px auto 0; /* Added margin-top to create space below the navBar */
+    padding: 20px;
+    background-color: #f8f8f8; /* Light gray background */
+  }
+  /* checkout.css */
+
+/* ... (previous styles remain unchanged) */
+
+/* Address Side */
+.addressSide {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+  }
+  
+  /* Address Block */
+  .addressBlock {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff; /* White background */
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  /* Change background color and border color when clicked (selected) */
+  .addressBlock:active {
+    background-color: #3a75c4; /* Attractive blue color */
+    border-color: #3a75c4; /* Attractive blue color */
+    color: #fff; /* White text color when clicked (selected) */
+  }
+  
+  .addressBlock label {
+    display: block;
+  }
+  
+  .addressBlock .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444; /* Dark gray color for name */
+  }
+  
+  .addressBlock .address,
+  .addressBlock .mobile {
+    font-size: 14px;
+    color: #666; /* Gray color for address and mobile */
+  }
+  
+  .addAddressForm {
+    display: flex;
+    gap: 10px;
+    border: 1px solid #0000ff;
+    align-items: center;
+    font-size: 16px;
+    color: #3a75c4; /* Attractive blue color */
+    cursor: pointer;
+    padding: 10px;
+    font-size: 22px;
+  }
+  
+  .addAddressForm span {
+    font-weight: bold;
+  }
+  
+  /* ... (rest of the styles remain unchanged) */
+  
+  /* Checkout Price Side */
+  .chekOutPrice {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .hading {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3a75c4; /* Attractive blue color */
+  }
+  
+  .couponBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    position: relative; /* Add position relative to create a reference for absolute positioning */
+  }
+  
+  
+  .couponBlock input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    flex: 1;
+  }
+  
+  .couponBlock button {
+    background-color: #3a75c4; /* Attractive blue color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .couponOptions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none; /* Hidden by default */
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    z-index: 1; /* Make sure it appears above other elements */
+  }
+  
+  /* Show the Coupon Options when hovering over the input field */
+  .couponBlock:hover .couponOptions {
+    display: block;
+  }
+  
+  /* Coupon Option Item */
+  .couponOptionsItem {
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .couponOptionsItem:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+  }
+  
+  .pricesBlock {
+    margin-top: 20px;
+  }
+  
+  .prices {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #444; /* Dark gray color */
+  }
+  
+  .couponApply {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #36b45a; /* Green color for coupon applied text */
+  }
+  
+  .totalPrices {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3a75c4; /* Attractive blue color */
+    margin-top: 20px;
+  }
+  
+  .placeButton {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  .placeButton button {
+    background-color: #ff6767; /* Attractive red color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 767px) {
+    .checkOutContainer {
+      flex-direction: column-reverse;
+      max-width: 100%; /* Cover the whole width of the mobile screen */
+    }
+  
+    .addressSide {
+      order: 2; /* Move the address side below the checkout price side */
+    }
+  
+    .chekOutPrice {
+      order: 1; /* Move the checkout price side above the address side */
+    }
+  }

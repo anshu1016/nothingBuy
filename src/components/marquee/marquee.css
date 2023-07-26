@@ -1,0 +1,117 @@
+.marqueeContainer {
+  background-image: url("../../assets/Phone-2-PDP-OS-Header-Desktop.webp");
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  position: relative;
+}
+
+/* Adding an overlay */
+.marqueeContainer:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Adjust the color and opacity as needed */
+}
+
+.marquee {
+  max-width: 1200px;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 1; /* Make sure the content is above the overlay */
+}
+
+.marquee .content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.marquee p {
+  font-size: 28px;
+  font-weight: bold;
+  color: #f8a100; /* Adjust the color as needed */
+}
+
+.marquee h2 {
+  font-size: 24px;
+  font-weight: 700; /* Adjust the font weight as needed */
+  color: #f8a100; /* Adjust the color as needed */
+}
+
+.marquee button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Adding a transition for smoother hover effect */
+}
+
+.marquee button:hover {
+  background-color: #f00; /* Changing the background color on hover */
+}
+
+.marquee .image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.marquee .image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Adding a slight shadow to the image */
+}
+
+.marquee1 {
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .marqueeContainer {
+    background-size: auto 100%;
+    background-position: top;
+    height: auto;
+    padding-top: 60px;
+  }
+
+  .marquee {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .marquee .content {
+    gap: 10px;
+  }
+
+  .marquee p {
+    font-size: 24px;
+  }
+
+  .marquee h2 {
+    font-size: 20px;
+  }
+
+  .marquee button {
+    font-size: 16px;
+  }
+
+  .marquee .image {
+    order: -1;
+    justify-content: center;
+  }
+}
