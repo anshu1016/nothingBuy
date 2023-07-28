@@ -9,16 +9,17 @@ import { useData } from "../../context/DataContext";
 const Explore = () => {
   // State variables
   const [showFilters, setShowFilters] = useState(false);
-const {state:{products,filters},setIsLoading} = useData()
-const {
-  searchValue,
-  sort,
-  selectedCategories,
-  selectedSizes,
-  rating,
-  price,
-  inStock,
-} = filters;
+  const {state:{products,filters},setIsLoading} = useData()
+  const {
+    searchValue,
+    sort,
+    selectedCategories,
+    selectedSizes,
+    rating,
+    price,
+    inStock,
+  } = filters;
+
   // Function to filter the product data based on the selected filters
   const modifiedData = () => {
     let filteredData = [...products];
@@ -66,8 +67,7 @@ const {
       setIsLoading(false);
     }, 1000);
   }, []);
-
-  // Rendering the component
+// Rendering the component
   return (
     <div className="explorePage">
       <div className={`filters ${showFilters ? "active" : ""}`}>
@@ -76,25 +76,24 @@ const {
       </div>
       <div className="content">
         {/* Displaying search results or all products */}
-        <h4> {searchValue ? "Search Results for" : "Showing All Products"} </h4>
-        <h4>
-          {" "}
+        <h4 className="content-header"> 
+          {searchValue ? "Search Results for" : "Showing All Products"} 
           {searchValue ? (
             <strong>{searchValue}</strong>
           ) : (
             `(${modifiedData()?.length} products)`
           )}
         </h4>
-        <div>
+        
+        <div className="products-container">
           {/* Displaying a message and image if no products are found */}
           {modifiedData()?.length===0 && (
-            <div>
+            <div className="no-products">
               <img src={empty} alt="empty_product" height={200} width={200} />
               <h2>Product not found ☹️</h2>
             </div>
           )}
-        </div>
-        <div className="cards">
+
           {/* Mapping over the filtered product data and rendering ProductCard components */}
           {modifiedData()?.map((product) => (
             <ProductCard product={product} key={product.id} />
