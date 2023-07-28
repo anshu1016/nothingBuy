@@ -4,17 +4,8 @@ import { useData } from "../../context/DataContext";
 import { success, warning } from "../../services/ToastService";
 import { ImCross } from "react-icons/im";
 
-const AddressForm = () => {
+const AddressForm = ({handleCloseAddressForm,openAddress,setOpenAddress}) => {
   // State to store form input values
-  const [formData, setFormData] = useState({
-    name: "",
-    mobileNumber: "",
-    pincode: "",
-    city: "",
-    address: "",
-    alternatePhone: "",
-    state: "",
-  });
 
   const {
     setisHideBox,
@@ -23,32 +14,18 @@ const AddressForm = () => {
     setValues,
     values,
   } = useData();
+  console.log(address,updatedId,"TRYTRY")
   const saveCondition = updatedId ? true : false;
   // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
-      ...formData,
+      ...values,
       [name]: value,
     });
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you can add logic to handle the form submission, like sending the data to a backend server or performing any required action.
-    console.log(formData);
-    // Reset the form after submission
-    setFormData({
-      name: "",
-      mobileNumber: "",
-      pincode: "",
-      city: "",
-      address: "",
-      alternatePhone: "",
-      state: "",
-    });
-  };
 
   // Handle random data generation (for demo purposes)
   const handleRandomData = () => {
@@ -56,19 +33,20 @@ const AddressForm = () => {
       name: "Aadit Shukla",
       MobileNum: "37867658",
       pinCode: "13232",
-
       Fulladdress: "123, Sample Street",
-      alternatePhone: "9876543210",
+      alternateMobileNum: "9876543210",
       state: "State1", // Replace with your desired state value
     });
   };
 
-  const handleSave = () => {
+  const handleSave = (e) => {
+    e.preventDefault();
+    console.log("save clicked", values);
     if (
       values.name &&
       values.state &&
       values.Fulladdress &&
-      values.postalCode &&
+      values.pinCode &&
       values.MobileNum &&
       values.alternateMobileNum
     ) {
@@ -94,12 +72,23 @@ const AddressForm = () => {
           alternateMobileNum: "",
         }));
         success("Address Added successfully!");
+        setOpenAddress(false)
       }
     } else {
       warning("Please provide all the necessary details");
     }
   };
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  const handleCrossClick =() =>{
+    setisHideBox(false)
+    setOpenAddress(false)
+  }
+  const handleCancelButton =() =>{
+    setOpenAddress(false)
+    setisHideBox(false)
+  }
   return (
     <div className="addAddressForm">
       <form onSubmit={handleSubmit}>
@@ -107,23 +96,25 @@ const AddressForm = () => {
           Add Address{" "}
           <button
             className="cross-address-btn"
-            onClick={() => setisHideBox(false)}
+            onClick={ handleCrossClick}
           >
             <ImCross />
           </button>
         </h2>
         <div className="formRow">
           <input
-            type="text"
+            id="name"
             name="name"
+            type="text"
             placeholder="Name"
             value={values.name}
             onChange={handleChange}
             required
           />
           <input
+            id="mobileNumber"
             type="text"
-            name="mobileNumber"
+            name="MobileNum"
             placeholder="Mobile Number"
             value={values.MobileNum}
             onChange={handleChange}
@@ -133,8 +124,9 @@ const AddressForm = () => {
 
         <div className="formRow">
           <input
+            id="pincode"
             type="text"
-            name="pincode"
+            name="pinCode"
             placeholder="Pincode"
             value={values.pinCode}
             onChange={handleChange}
@@ -145,7 +137,7 @@ const AddressForm = () => {
 
         <textarea
           id="address"
-          name="address"
+          name="Fulladdress"
           placeholder="Address"
           value={values.Fulladdress}
           onChange={handleChange}
@@ -154,14 +146,17 @@ const AddressForm = () => {
 
         <div className="formRow">
           <input
+            id="alternatePhone"
             type="text"
-            name="alternatePhone"
+            name="alternateMobileNum"
             placeholder="Alternate Phone"
             value={values.alternateMobileNum}
             onChange={handleChange}
           />
           <input
+            id="state"
             type="text"
+            name="state"
             value={values.state}
             onChange={handleChange}
             placeholder="State"
@@ -181,7 +176,6 @@ const AddressForm = () => {
                 name: "",
                 MobileNum: "",
                 pinCode: "",
-
                 Fulladdress: "",
                 alternateMobileNum: "",
                 state: "",
@@ -200,7 +194,7 @@ const AddressForm = () => {
           <button
             type="button"
             className="cancelButton"
-            onClick={() => setisHideBox(false)}
+            onClick={() => handleCancelButton}
           >
             Cancel
           </button>
