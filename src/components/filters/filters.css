@@ -1,4 +1,4 @@
-input {
+.input {
   cursor: pointer;
 }
 
@@ -6,9 +6,12 @@ input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 15px;
 }
 
 .filter-group label {
+  display: flex;
+  align-items: center;
   margin-bottom: 0.5rem;
 }
 
@@ -72,18 +75,6 @@ input {
   top: 80px;
 }
 
-.filters-box::-webkit-scrollbar {
-  width: 5px;
-}
-
-.filters-box::-webkit-scrollbar-thumb {
-  background-color: #ddd;
-  border-radius: 5px; 
-}
-
-.filters-box::-webkit-scrollbar-thumb:hover {
-  background-color: #aaa; 
-}
 
 .filters-top {
   display: flex;
