@@ -3,7 +3,7 @@
 
 nothingBuy is a simple, intuitive e-commerce application where you can browse products, add them to your cart, and proceed with checkout. Our goal is to provide a seamless shopping experience for users.
 
-![App Screenshot](./assets/app_screenshot.png)
+<img width="947" alt="image" src="https://github.com/anshu1016/nothingBuy/assets/69161719/af09dd7a-d64b-4892-b0ba-beb325d8ff6f">
 
 ## Features
 
