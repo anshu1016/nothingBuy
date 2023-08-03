@@ -1,3 +1,61 @@
+
+# nothingBuy
+
+nothingBuy is a simple, intuitive e-commerce application where you can browse products, add them to your cart, and proceed with checkout. Our goal is to provide a seamless shopping experience for users.
+
+![App Screenshot](./assets/app_screenshot.png)
+
+## Features
+
+- Browse Products: Explore a wide variety of products across multiple categories.
+- Shopping Cart: Add products to your shopping cart and manage your orders.
+- Checkout Process: Secure and straightforward checkout process.
+- Responsive Design: The application is fully responsive and can be used on various devices of different sizes.
+
+## Live Demo
+
+You can view a live demo of the application [here](https://nothing-buy.vercel.app/).
+
+## Installation
+
+To run this project locally, follow these steps:
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/anshu1016/nothingBuy.git
+```
+
+2. Navigate to the project directory
+
+```bash
+cd nothingBuy
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Start the local server
+
+```bash
+npm start
+```
+
+The application will start running on [http://localhost:3000](http://localhost:3000)
+
+## Technologies Used
+
+- React.js
+- CSS
+- Vanilla JS
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
