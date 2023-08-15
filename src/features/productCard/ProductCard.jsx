@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../components/explore/explore.css";
-import { AiFillStar, AiFillHeart } from "react-icons/ai";
+import { AiOutlineHeart,AiFillStar, AiFillHeart } from "react-icons/ai";
 import { BsCartCheck, BsCartPlus } from "react-icons/bs";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
@@ -16,6 +16,7 @@ import {
 import { useData } from "../../context/DataContext";
 
 const ProductCard = ({ product, deleteIcon }) => {
+  console.log(deleteIcon,"deleteIcon")
   const token = localStorage.getItem("token");
   const [isDisabled, setIsDisabled] = useState(false);
   console.log(token, "token");
@@ -31,6 +32,7 @@ const ProductCard = ({ product, deleteIcon }) => {
   };
   const handleAddToCart = () => {
     setIsDisabled(true);
+    console.log(_id,"cartClicked")
     if (token) {
       addtoCartService(product, dispatch, token,setIsLoading, navigate, location);
       success("Added To Cart!");
@@ -51,14 +53,21 @@ const ProductCard = ({ product, deleteIcon }) => {
       loginTocontinue("Login To Continue");
     }
   };
-  const handleRemoveFromWishlist = (_id) => {
-    console.log("remove clicked")
-    setIsDisabled(true);
-    if (token) {
-      removeFromWishListService(_id, dispatch, token);
-      remove("Removed from Wishlist!");
-      setTimeout(() => setIsDisabled(false), 1500);
-    }
+  const handleRemoveFromWishlist = () => {
+    // console.log("remove clicked",_id)
+    // setIsDisabled(true);
+    // if (token) {
+    //   removeFromWishListService(_id, dispatch, token);
+    //   remove("Removed from Wishlist!");
+    //   setTimeout(() => setIsDisabled(false), 1500);
+    // }
+    console.log("first")
+    console.log(_id)
+    // setIsDisabled(true)
+
+  console.log(token,"wishlist token")
+  removeFromWishListService(_id,dispatch,token)
+
   };
   const {
     _id,
@@ -85,10 +94,10 @@ const ProductCard = ({ product, deleteIcon }) => {
             {token && wishlist?.some((data) => data._id === _id) ? (
               <span
                 className="cart-like-btn liked"
-                onClick={()=>handleRemoveFromWishlist}
+                onClick={handleRemoveFromWishlist} 
               >
                 {!deleteIcon && <AiFillHeart />}
-                {deleteIcon && <RiDeleteBin5Line />}
+                {deleteIcon && <RiDeleteBin5Line/>}
               </span>
             ) : (
               <button
@@ -96,7 +105,7 @@ const ProductCard = ({ product, deleteIcon }) => {
                 onClick={handleAddToWishlist}
                 disabled={isDisabled}
               >
-                <AiFillHeart />
+                <AiOutlineHeart />
               </button>
             )}
           </div>
@@ -126,7 +135,7 @@ const ProductCard = ({ product, deleteIcon }) => {
           </div>
           {token && cart?.some((data) => data._id === product._id) ? (
             <NavLink to="/cart">
-              <button className="go-to-cart">
+              <button className=" button go-to-cart ">
                 Go To Cart <BsCartCheck className="icon-size" />
               </button>
             </NavLink>
@@ -139,7 +148,7 @@ const ProductCard = ({ product, deleteIcon }) => {
             Add To Cart <BsCartPlus className="icon-size" />
           </button>
           ) : (
-            <button className="go-to-cart disabled-element" disabled>
+            <button className=" button go-to-cart disabled-element " disabled>
               Out Of Stock
             </button>
           )}

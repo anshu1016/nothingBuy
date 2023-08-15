@@ -11,10 +11,10 @@ import { success } from "./ToastService";
       console.log(response);
       const data = await response.json();
       const { createdUser, encodedToken } = data;
-      setIsLoggedIn(true);
       localStorage.setItem("user", JSON.stringify(createdUser));
       localStorage.setItem("token", encodedToken);
-      navigate("/productlisting");
+      setIsLoggedIn(true);
+      navigate("/");
       success("Login Successfully!");
     } catch (error) {
       console.log(error);
