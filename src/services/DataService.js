@@ -162,12 +162,8 @@ const addToWishListService = async (product, dispatch, token, setIsLoading) => {
     console.log(err);
   } 
 };
-const removeFromWishListService = async (
-  _id,
-  dispatch,
-  token,
-  setIsLoading
-) => {
+const removeFromWishListService = async (_id, dispatch, token) => {
+  console.log("service clicked remove")
   try {
     const response = await fetch(`/api/user/wishlist/${_id}`, {
       method: "DELETE",
@@ -176,12 +172,13 @@ const removeFromWishListService = async (
       },
     });
     const data = await response.json();
-    console.log(data,"remove wishlist clicked")
-    dispatch({ type: "WISHLIST_METHODS", payload: data.wishlist });
-  } catch (err) {
-    console.log(err);
-  } 
+    console.log(data,"data wishlist")
+    dispatch({ type: "WISHLIST_OPERATION", payload: data.wishlist });
+  } catch (error) {
+    console.log(error);
+  }
 };
+
 export {
   getAllCategories,
   getAllProducts,

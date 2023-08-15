@@ -1,16 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useData } from "../../context/DataContext";
 import ProductCard from "../productCard/ProductCard";
 import empty_wishlist from "../../assets/empty_wishlist.png";
-import "./wishlist.css"
+import "./wishlist.css";
 const WishList = () => {
   const {
     state: { wishlist },
   } = useData();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
-
+  }, [wishlist]);
+  console.log(wishlist, "data original");
   return (
     <>
       {wishlist?.length > 0 ? (

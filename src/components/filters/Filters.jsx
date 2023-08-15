@@ -152,7 +152,7 @@ export const Filters = () => {
 {/* Categories */}
 <h4 className="font-1-2 top-margin margin-bottom-1">Categories:</h4>
 <div className="flex direction-column">
-  {["Mobile", "Earphone", "Accessories"].map((category) => (
+  {["Mobile", "Earphones", "Accessories"].map((category) => (
     <label key={category}>
       <input
         type="checkbox"

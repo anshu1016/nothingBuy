@@ -1,5 +1,5 @@
 import React,  { useEffect, useState } from "react";
-import { AiFillStar, AiFillHeart } from "react-icons/ai";
+import { AiFillStar, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import "./singleProduct.css";
 import { NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
@@ -79,10 +79,10 @@ const SingleProduct = () => {
         {token && wishlist.some((prod) => prod._id === product._id) ? (
                   <span
                     className="cart-like-btn liked"
-                    onClick={handleRemoveFromWishlist}
+                    onClick={()=>handleRemoveFromWishlist}
                     disabled={isDisabled}
                   >
-                    <AiFillHeart />
+                    <AiFillHeart style={{color:"red"}} />
                   </span>
                 ) : (
                   <button
@@ -90,7 +90,7 @@ const SingleProduct = () => {
                     onClick={handleAddToWishlist}
                     disabled={isDisabled}
                   >
-                    <AiFillHeart />
+                    <AiOutlineHeart />
                   </button>
                 )}
         </div>
@@ -139,7 +139,7 @@ const SingleProduct = () => {
           <button className="buyNowButton">  {token && wishlist.some((data) => data._id === product._id) ? (
                   <NavLink to={"/wishlist"}>
                     <p className="go-to-cart liked">
-                      Go To Wishlist <AiFillHeart />
+                      Go To Wishlist <AiFillHeart style={{color:"red"}} />
                     </p>
                   </NavLink>
                 ) : (
@@ -148,7 +148,7 @@ const SingleProduct = () => {
                     className="add-to-cart sm-fontsize "
                     disabled={isDisabled}
                   >
-                    Add To Wishlist <AiFillHeart />
+                    Add To Wishlist <AiOutlineHeart />
                   </p>
                 )}</button>
         </div>

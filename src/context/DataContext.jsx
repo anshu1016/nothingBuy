@@ -30,11 +30,8 @@ const DataContextProvider = ({ children }) => {
   const [values, setValues] = useState({
     id: "",
     name: "",
-
-    address: "",
-
+    Fulladdress: "",
     state: "",
-
     pinCode: "",
     MobileNum: "",
     alternateMobileNum: "",
@@ -62,6 +59,7 @@ const DataContextProvider = ({ children }) => {
     getAllProducts(dispatch, setIsLoading);
     // getAllCart(dispatch, setIsLoading);
     getCarts();
+
   }, []);
   console.log(state);
   return (

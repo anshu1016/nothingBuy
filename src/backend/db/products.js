@@ -4,7 +4,7 @@ export const products = [
     _id: "1",
     itemName: "Nothing Special Phone 1",
     image:
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/j/s/p/-original-imagrdefpqecnzyw.jpeg?q=70",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI2Vx6Sgporz_L_4rm_QbRrNNKXa7uLPkZfw&usqp=CAU",
     description:
       "Designed with impressive features and a myriad of thought processes put together ",
     rating: 4,
@@ -48,7 +48,7 @@ export const products = [
     _id: "3",
     itemName: "Nothing Stylish Phone 2",
     image:
-      "https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/i/i/a/-original-imagrdefjfg5y45r.jpeg?q=70",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaAQ3GVpfJGiK62r6vPtZ3UFmxyYmjmA6nvFCJusJLRMkcIRXI04rGUgd5-lsk6mxV9pU&usqp=CAU",
     description: "An innovative smartphone with powerful specifications.",
     rating: 3.4,
     reviews: 40,
@@ -67,7 +67,8 @@ export const products = [
   {
     _id: "4",
     itemName: "Nothing PLus Phone 2",
-    image: "https://example.com/nothing-phone2.jpg",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaBRrGsiVVnlki4KoKILEQNca7JOqvZItdzA&usqp=CAU",
     description: "An innovative smartphone with powerful specifications.",
     rating: 4,
     reviews: 40,
@@ -221,7 +222,8 @@ export const products = [
   {
     _id: "11",
     itemName: "Nothing Compact Charger",
-    image: "https://example.com/nothing-charger.jpg",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-jmd8BuFnBjheLIVhGp06OY92_b17nHbDBA&usqp=CAU",
     description: "Fast charging wall adapter with a Type-C cable.",
     rating: 4.5,
     reviews: 25,

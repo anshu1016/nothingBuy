@@ -20,19 +20,18 @@ const Profile = () => {
 
   const HandleNewAddress = () => {
     setisHideBox(!isHideBox);
-    setValues((prev) => ({
-      id: new Date().getTime(),
+    setValues({
+      id: new Date().getTime().toString(),
       name: "",
-      Fulladdress,
+      Fulladdress: "",
       state: "",
-      country: "",
-      postalCode: "",
+      alternateMobileNum: "",
+      pinCode: "",
       MobileNum: "",
-    }));
+    });
   };
 
   const { setIsLoggedIn } = useAuth();
-  const [toggleBtn, setToggleBtn] = useState(true);
 
   const removeHandler = (id) => {
     addressDispatch({ type: "REMOVE_ADDRESS", payload: id });
@@ -41,8 +40,8 @@ const Profile = () => {
 
   const editHandler = (editId) => {
     setisHideBox(!isHideBox);
-    console.log(editId, "editid");
-    setValues(() => address.find((data, i) => data.id === editId));
+    const foundAddress = address.find((data) => data.id === editId);
+    if (foundAddress) setValues(foundAddress);
     addressDispatch({ type: "EDIT_ADDRESS", payload: editId });
   };
 
@@ -54,13 +53,14 @@ const Profile = () => {
   };
 
   const logOutHandler = () => {
-    setIsLoggedIn(null);
+    setIsLoggedIn(false);
     localStorage.clear();
   };
 
-  var userJson = localStorage.getItem("user");
+  const userJson = localStorage.getItem("user");
+  let user;
   if (userJson) {
-    var user = JSON.parse(userJson);
+    user = JSON.parse(userJson);
   } else {
     localStorage.removeItem("socialUser");
   }
@@ -112,16 +112,7 @@ const Profile = () => {
         <div className="addressBlock">
           {address.map(
             (
-              {
-                id,
-                name,
-                street,
-                Fulladdress,
-                country,
-                pinCode,
-                MobileNum,
-                alternateMobileNum,
-              },
+              { id, name, Fulladdress, pinCode, MobileNum, alternateMobileNum },
               i
             ) => (
               <div className="addressBlockk">
@@ -139,7 +130,6 @@ const Profile = () => {
                   </div>
                   <div className="country">India</div>
                 </div>
-
                 <div className="buttons">
                   <button className="edit" onClick={() => editHandler(id)}>
                     Edit
@@ -161,51 +151,70 @@ const Profile = () => {
       )}
       {selectedSection === "orderHistory" && (
         <div className="orderHistoryBlock">
-          <div className="orderGroup">
-            {OrderPlacedItems.map(
-              ({ _id, image, itemName, oldPrice, newPrice, discount, qty }) => (
-                <NavLink
-                  className={"navlink-address-setting"}
-                  to={"/orderPlaced"}
-                >
-                  <div>
-                    {" "}
-                    <img src={image} alt={itemName} />
-                    <div className="details">
-                      {" "}
-                      <h4 className="margin-bottom-1">{itemName}</h4>
-                      <p className=" font-sm">Total Quantity: {qty}</p>
-                      <div className="productPrices">
-                        <span className="newPrice">₹{newPrice}</span>
-                        <span className="strikeThrought">₹{oldPrice}</span>
-                        <p className="discount">({discount}%OFF)</p>
-                      </div>
-                    </div>
-                  </div>
-                </NavLink>
-              )
-            )}
-            <div>
-              <h4>Order Confirmed</h4>
-              <div className="orderDetails">
-                <p>Payment Id: {payment_key}</p>
-                <p>Total Amount : ₹ {totalPrice.toFixed(2)}</p>
-                <label htmlFor="address">
-                  <h3 className="name">{name}</h3>
-                  <p className="address">
-                    {Fulladdress}, {state},India, Pin:{pinCode}
-                  </p>
-                  <p className="mobile">
-                    <BsFillTelephoneFill />: {MobileNum}
-                  </p>
-                </label>
-              </div>
+          {OrderPlacedItems.length < 1 ? (
+            <div className="empty-cart-order">
+              Your Order is Empty click here to
+              <NavLink to="/productlisting">
+                <button className="shop-now-btn"> Shop Now</button>
+              </NavLink>{" "}
             </div>
-          </div>
+          ) : (
+            <>
+              <div className="orderGroup">
+                {OrderPlacedItems.map(
+                  ({
+                    _id,
+                    image,
+                    itemName,
+                    oldPrice,
+                    newPrice,
+                    discount,
+                    qty,
+                  }) => (
+                    <div className="orderCard">
+                    <NavLink
+                      className={"navlink-address-setting"}
+                      to={"/orderPlaced"}
+                    >
+                     
+                        <img src={image} alt={itemName} />
+                        <div className="details">
+                          <h4 className="margin-bottom-1">{itemName}</h4>
+                          <p className=" font-sm">Total Quantity: {qty}</p>
+                          <div className="productPrices">
+                            <span className="newPrice">₹{newPrice}</span>
+                            <span className="strikeThrought">₹{oldPrice}</span>
+                            <p className="discount">({discount}%OFF)</p>
+                          </div>
+                        </div>
+                      
+                    </NavLink>
+                    </div>
+                  )
+                )}
+                </div>
+                <div>
+                  <h4>Order Confirmed</h4>
+                  <div className="orderDetails">
+                    <p>Payment Id: {payment_key}</p>
+                    <p>Total Amount : ₹ {totalPrice.toFixed(2)}</p>
+                    <label htmlFor="address">
+                      <h3 className="name">{name}</h3>
+                      <p className="address">
+                        {Fulladdress}, {state},India, Pin:{pinCode}
+                      </p>
+                      <p className="mobile">
+                        <BsFillTelephoneFill />: {MobileNum}
+                      </p>
+                    </label>
+                  </div>
+                </div>
+              
+            </>
+          )}
         </div>
       )}
     </div>
   );
 };
-
 export default Profile;

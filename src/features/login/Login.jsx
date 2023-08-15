@@ -23,7 +23,7 @@ const Login = () => {
       onSubmit={(e) => e.preventDefault()}
     >
       <div className="login-form-innerContainer">
-        <h1>Sign In</h1>
+        <h1 className="login-header">Sign In</h1>
         <div className="">
           <div className="login-email">
             <input
@@ -85,7 +85,7 @@ const Login = () => {
           Login as Guest
         </button>
 
-        <NavLink to="/signup">Don't have account?</NavLink>
+        <NavLink className="login-signup-link" to="/signup">Don't have an account? SignUp </NavLink>
       </div>
     </form>
   </div>

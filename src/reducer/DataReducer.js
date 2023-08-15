@@ -122,10 +122,16 @@ export const DataReducer = (state, { type, payload }) => {
     case "WISHLIST_METHODS":
       return {
         ...state,
-        wishlist: payload,
+      wishlist:payload,
       };
     case "INDIVIDUAL_PRODUCT":
       return { ...state, individualProduct: payload };
+
+    case "SEARCH_PRODUCT":
+        return {
+          ...state,
+          filters: { ...state.filters, searchValue: payload },
+        };
     
     default:
       return { ...state };
