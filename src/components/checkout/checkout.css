@@ -9,7 +9,9 @@
     max-width: 800px;
     margin: 60px auto 0; /* Added margin-top to create space below the navBar */
     padding: 20px;
-    background-color: #f8f8f8; /* Light gray background */
+    background-color: #f8f8f8; 
+    position: relative; 
+    /* Light gray background */
   }
   /* checkout.css */
 
@@ -74,8 +76,27 @@
   .addAddressForm span {
     font-weight: bold;
   }
-  
-  /* ... (rest of the styles remain unchanged) */
+  .addressFormContainer {
+    position: fixed; /* This will make the component positioned relative to the browser window */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* The background color with opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* High z-index to ensure the form overlays other elements on the page */
+}
+
+/* The actual form inside the AddressForm component */
+.addressFormContainer form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%; /* To make sure the form is not too wide on large screens */
+}
+/* ... (rest of the styles remain unchanged) */
   
   /* Checkout Price Side */
   .chekOutPrice {
