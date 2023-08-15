@@ -54,16 +54,16 @@ const ProductCard = ({ product, deleteIcon }) => {
     }
   };
   const handleRemoveFromWishlist = () => {
-    // console.log("remove clicked",_id)
-    // setIsDisabled(true);
-    // if (token) {
-    //   removeFromWishListService(_id, dispatch, token);
-    //   remove("Removed from Wishlist!");
-    //   setTimeout(() => setIsDisabled(false), 1500);
-    // }
+    console.log("remove clicked",_id)
+    setIsDisabled(true);
+    if (token) {
+      removeFromWishListService(_id, dispatch, token);
+      remove("Removed from Wishlist!");
+      setTimeout(() => setIsDisabled(false), 1500);
+    }
     console.log("first")
     console.log(_id)
-    // setIsDisabled(true)
+    setIsDisabled(true)
 
   console.log(token,"wishlist token")
   removeFromWishListService(_id,dispatch,token)
